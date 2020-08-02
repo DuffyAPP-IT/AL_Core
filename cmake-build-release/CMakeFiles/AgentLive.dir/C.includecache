@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/a010010/Documents/GitHub/AL_Core/AL_Core/iLibX.c
+iLibX.h
+/Users/a010010/Documents/GitHub/AL_Core/AL_Core/iLibX.h
+
+/Users/a010010/Documents/GitHub/AL_Core/AL_Core/iLibX.h
+sys/wait.h
+-
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+string.h
+-
+
+/Users/a010010/Documents/GitHub/AL_Core/AL_Core/main.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+sys/stat.h
+-
+zconf.h
+-
+iLibX.h
+/Users/a010010/Documents/GitHub/AL_Core/AL_Core/iLibX.h
+

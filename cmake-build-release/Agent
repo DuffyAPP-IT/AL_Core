@@ -1,0 +1,21 @@
+#!/binpack/bin/bash
+
+if [[ $1 = "-a" ]]
+then
+	# Basic Device Info + Cleanup
+	# Device Name
+	rm -rf /AL && mkdir /AL
+	uname -a | cut -d' ' -f2 | tr -d '\n' >> /AL/BASIC
+	echo ':DNAME' >> /AL/BASIC
+
+	# iOS Version
+	cat /System/Library/CoreServices/SystemVersion.plist | grep ProductVersion -A1 | grep string | cut -f2- -d'>' | cut -f1 -d'<' | tr -d '\n' >> /AL/BASIC
+	echo ':IOSV' >> /AL/BASIC\
+
+	# iOS Install Date
+
+    # Account Info
+    /usr/bin/sqlite3 /private/var/mobile/Library/Accounts/Accounts3.sqlite -line 'SELECT DISTINCT ZUSERNAME,ZOWNINGBUNDLEID FROM 'ZACCOUNT' where ZUSERNAME IS NOT NULL' | grep -v '^$' | cut -f2 -d'=' | paste -s -d' \n' | sed -e 's/^[ \t]*//' | tr -s '[:space:]' | sed -e 's/ /:/g' >> /AL/ACCOUNTS
+
+fi
+exit(0)
